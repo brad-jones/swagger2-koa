@@ -57,7 +57,7 @@ export default function(document: swagger.Document): (context: any, next: () => 
     const validationErrors = swagger.validateRequest(compiledPath, context.method,
       context.request.query,
       context.request.body,
-      undefined,
+      context.request.headers,
       context.params);
 
     if (validationErrors === undefined) {
